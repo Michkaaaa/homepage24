@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Michka's Homepage</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+    <body>
+        <section class="bookmarks">
+            <a href="https://mail.google.com" target="_blank">
+            <i class="fas fa-envelope"></i>
+            </a>
+                   <i class="fas fa-sticky-note" onclick="showNote()"></i>
+                   <i class="fas fa-calculator" onclick="showCalculator()"></i>
+            </section>
+</body>            
+<textarea placeholder="Write a note..." id="note" onkeyup="autoSave()"></textarea>
+<iframe width="219" height="302" id="calc"
+src="http://calculator-1.com/outdoor/?f=0274C8&r=666666" scrolling="no" frameborder="0"></iframe>
+
+
