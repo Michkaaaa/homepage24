@@ -7,22 +7,64 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>michka's homepage</title>
+        <title>Michka"s homepage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
     </head>
-    <body>
+    <body onload="startTime()">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <script src="style.css" async defer></script>
-    </body>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/42d07n87d79/glenview/?unit=us" data-label_1="GLENVIEW" data-label_2="WEATHER" style="display: block; position: relative; height: 902px; padding: 0px; overflow: hidden; text-align: left; text-indent: -299rem;">GLENVIEW WEATHER<iframe id="weatherwidget-io-0" class="weatherwidget-io-frame" title="Weather Widget" scrolling="no" frameborder="0" width="100%" src="https://weatherwidget.io/w/" style="display: block; position: absolute; top: 0px; height: 902px;"></iframe></a>
+        <script id="weatherwidget-io-js" src="https://weatherwidget.io/js/widget.min.js"></script><script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+        <h1>Muah</h1>
+        <!-- GOOGLE SEARCH -->
+        <form action="https://google.com/search" method="get" target="_blank">
+            <input type="hidden" name="sitesearch">
+            <input type="text" name="q" placeholder="search..." class="search-bar">
+            <input type="submit" value="GO" class="submit-button">
+        </form>
+
+        <!-- BOOKMARK -->
+        <section class="bookmarks">
+            <a href="http://mail.google.com" target="_blank">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="http://drive.google.com" target="_blank">
+                <i class="fab fa-google-drive"></i>
+            </a>
+            <i class="fab fa-twitter" onclick="showTwitter()"></i>
+            <i class="fas fa-sticky-note" onclick="showNote()"></i>
+            <i class="fas fa-calculator" onclick="showCalculator()"></i>
+        </section>
+
+        <!-- CALCULATOR -->
+        <iframe class="calculator hover" id="calc" width="219" height="302" src="https://calculator-1.com/outdoor/?f=ffca39&amp;r=ffffff" scrolling="no" frameborder="0"></iframe>
+    
+        
+
+        <!-- POST IT NOTE -->   
+        <textarea placeholder="Write a note..." id="note" class="" onkeyup="autoSave()">        </textarea>
+
+        <div class="twitter-wrapper" id="tweet">
+            <i class="far fa-times-circle exit" onclick="hideTweet()"></i>
+            <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 300px; height: 468px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-list/screen-name/mjmacfadden/slug/1576542010093232129?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;origin=https%3A%2F%2Fmrmacfadden.github.io%2F2022homepage%2F&amp;sessionId=e61961c697718172315e8c60fc1a03bd6589a9b0&amp;showHeader=true&amp;transparent=false&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div id="clock">9:06:53</div>
+
+        <script src="myScripts.js" async="" defer=""></script>
+    
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.2f70fb173b9000da126c79afe2098f02.html?origin=https%3A%2F%2Fmrmacfadden.github.io" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium;" title="Twitter analytics iframe"></iframe></body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+   </body>
 </html>
-<a class="weatherwidget-io" href="https://forecast7.com/en/42d07n87d79/glenview/" data-label_1="GLENVIEW" data-label_2="WEATHER" data-theme="original" >GLENVIEW WEATHER</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
-<iframe width="219" height="302" src="http://calculator-1.com/outdoor/?f=0274C8&r=000000" scrolling="no" frameborder="0"></iframe><br /><a href="https://calculator-1.com/">The Best Free Online Calculator - Calculator-1.com</a>
-<a class="twitter-timeline" href="https://twitter.com/XDevelopers?ref_src=twsrc%5Etfw">Tweets by XDevelopers</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
